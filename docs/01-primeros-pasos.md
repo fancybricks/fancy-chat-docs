@@ -1,45 +1,46 @@
 ---
-title: Primeros pasos
+title: Getting Started
 slug: /
 ---
 
-## Requisitos
+## Requirements
 
-- WordPress 6.0 o superior.
-- PHP 8.1 o superior.
-- Una clave API de Anthropic (Claude) — se paga directamente a Anthropic,
-  el plugin no revende tokens ni añade margen sobre el consumo de IA.
+- WordPress 6.0 or higher.
+- PHP 8.1 or higher.
+- An Anthropic (Claude) API key — billed directly by Anthropic, the
+  plugin doesn't resell tokens or add a markup on AI usage.
 
-## Instalación
+## Installation
 
-1. Sube el ZIP del plugin desde Plugins → Añadir nuevo → Subir plugin, y
-   actívalo.
-2. Al activarlo, WordPress te lleva **automáticamente** a la pestaña
-   **AI Provider** — no hace falta ir a buscarla.
-3. Pega tu clave API de Anthropic y pulsa **Test connection** para
-   confirmar que funciona antes de guardar (ver
+1. Upload the plugin ZIP from Plugins → Add New → Upload Plugin, and
+   activate it.
+2. On activation, WordPress **automatically** takes you to the
+   **AI Provider** tab — no need to go looking for it.
+3. Paste your Anthropic API key and click **Test connection** to
+   confirm it works before saving (see
    [AI Provider](02-ai-provider.md)).
-4. Rellena **Company & Content** para que el asistente conozca tu negocio
-   (ver [Company & Content](03-company-content.md)).
+4. Fill in **Company & Content** so the assistant knows about your
+   business (see [Company & Content](03-company-content.md)).
 
-## Qué pasa si activas el plugin sin configurar la clave todavía
+## What happens if you activate the plugin without a key yet
 
-El widget de chat **no aparece en el sitio** hasta que hay una clave API
-guardada — no se muestra una burbuja rota ni un error visible para los
-visitantes, simplemente no se carga nada.
+The chat widget **doesn't show up on the site** until an API key is
+saved — visitors don't see a broken bubble or a visible error, nothing
+simply loads at all.
 
-Mientras tanto, el propio admin de WordPress te lo recuerda de dos formas:
+In the meantime, the WordPress admin reminds you in two ways:
 
-- Un aviso descartable en el resto del admin (cualquier pantalla que no
-  sea la del propio plugin), con un enlace directo a AI Provider.
-- Un aviso permanente dentro de cualquier pestaña del plugin (salvo AI
-  Provider, donde sería redundante con el propio campo).
+- A dismissible notice throughout the rest of the admin (any screen
+  other than the plugin's own), with a direct link to AI Provider.
+- A persistent notice inside every tab of the plugin (except AI
+  Provider, where it would be redundant with the field itself).
 
-Ambos avisos desaparecen solos en cuanto guardas una clave válida.
+Both notices disappear on their own as soon as you save a valid key.
 
-## Redirección de primer uso
+## First-run redirect
 
-Este redirect solo ocurre **una vez**, justo después de activar el plugin
-(no en cada carga del admin), y se salta automáticamente si activas varios
-plugins a la vez desde la lista de plugins (activación en bloque) — en ese
-caso simplemente te quedas en la lista de plugins, como es de esperar.
+This redirect only happens **once**, right after activating the plugin
+(not on every admin page load), and is automatically skipped if you
+activate several plugins at once from the plugins list (bulk
+activation) — in that case you simply stay on the plugins list, as
+expected.

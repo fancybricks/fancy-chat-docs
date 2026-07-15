@@ -2,58 +2,68 @@
 title: Widget & WhatsApp
 ---
 
-Cinco sub-pestañas: Identity, Suggested Questions, WhatsApp, Disclaimer,
+Five sub-tabs: Identity, Suggested Questions, WhatsApp, Disclaimer,
 Visibility.
 
 ## Identity
 
-- **Bot avatar** — imagen vía la Media Library nativa de WordPress
-  (cuadrada recomendada). Si no se configura ninguna, se usa un avatar por
-  defecto.
-- **Bot name** — por defecto "Fanci". Se muestra en la cabecera del widget
-  y en el saludo.
-- **Primary color** — un solo color del que se deriva toda la paleta del
-  widget (incluido el contraste automático de texto).
-- **Greeting message** — mensaje mostrado antes del primer mensaje del
-  visitante. Admite el token `{bot_name}`, que se reemplaza automáticamente
-  por el nombre configurado — si cambias el nombre del bot más adelante,
-  el saludo se actualiza solo, sin tener que editar el texto de nuevo.
+![Widget & WhatsApp — Identity](/img/screenshots/widget-whatsapp-identity.png)
+
+- **Bot avatar** — image via WordPress's native Media Library (square
+  recommended). If none is set, a default avatar is used.
+- **Bot name** — "Fanci" by default. Shown in the widget header and in
+  the greeting.
+- **Primary color** — a single color from which the whole widget
+  palette is derived (including automatic text contrast).
+- **Greeting message** — message shown before the visitor's first
+  message. Supports the `{bot_name}` token, which is automatically
+  replaced with the configured name — if you change the bot's name
+  later, the greeting updates itself, with no need to edit the text
+  again.
 
 ## Suggested Questions
 
-Chips clicables mostrados junto al saludo, antes del primer mensaje.
-Deliberadamente separados de las FAQ (Company & Content) — las FAQ suelen
-ser más largas y no caben bien como texto de un botón compacto.
+![Widget & WhatsApp — Suggested Questions](/img/screenshots/widget-whatsapp-suggested-questions.png)
+
+Clickable chips shown next to the greeting, before the first message.
+Deliberately separate from the FAQ (Company & Content) — FAQ answers
+tend to be longer and don't fit well as the text of a compact button.
 
 ## WhatsApp
 
-- **WhatsApp number** — código de país + número, solo dígitos (sin `+`,
-  espacios ni guiones). Vacío = el botón de WhatsApp no se muestra.
-- **Prefilled message** — mensaje precargado cuando el visitante pulsa el
-  botón. Si ya existe una conversación, el plugin genera además un
-  **resumen por IA** de lo hablado y lo antepone al mensaje, para que el
-  agente humano no tenga que empezar de cero.
+![Widget & WhatsApp — WhatsApp](/img/screenshots/widget-whatsapp-whatsapp.png)
+
+- **WhatsApp number** — country code + number, digits only (no `+`,
+  spaces, or dashes). Empty = the WhatsApp button isn't shown.
+- **Prefilled message** — message preloaded when the visitor taps the
+  button. If a conversation already exists, the plugin also generates
+  an **AI summary** of what was discussed and prepends it to the
+  message, so the human agent doesn't have to start from scratch.
 
 ## Disclaimer
 
-Texto de transparencia sobre las limitaciones de la IA, mostrado como nota
-discreta bajo el campo de mensaje del widget. Se puede vaciar, aunque no
-es recomendable.
+![Widget & WhatsApp — Disclaimer](/img/screenshots/widget-whatsapp-disclaimer.png)
+
+Transparency text about the AI's limitations, shown as a discreet note
+under the widget's message field. It can be left empty, though that's
+not recommended.
 
 ## Visibility
 
-Controla en qué páginas aparece el widget:
+![Widget & WhatsApp — Visibility](/img/screenshots/widget-whatsapp-visibility.png)
 
-- **Show on all pages** (por defecto).
-- **Hide on selected pages** — se elige una lista y el widget se oculta
-  solo ahí.
-- **Show only on selected pages** — inverso: solo aparece en las páginas
-  elegidas.
+Controls which pages the widget appears on:
 
-Útil para no interferir con una landing page o un paso de un embudo de
-conversión. El selector de páginas es un `<select multiple>` nativo — Ctrl
-(Cmd en Mac) para elegir varias.
+- **Show on all pages** (default).
+- **Hide on selected pages** — pick a list and the widget is hidden
+  only there.
+- **Show only on selected pages** — the reverse: it only appears on
+  the pages you pick.
 
-**El widget nunca se muestra dentro del editor de un page builder**
-(Bricks, Etch) — se detecta automáticamente tanto el panel de edición
-como el iframe de canvas, independientemente de esta configuración.
+Useful for not interfering with a landing page or a step in a
+conversion funnel. The page selector is a native `<select multiple>` —
+Ctrl (Cmd on Mac) to pick several.
+
+**The widget is never shown inside a page builder's editor** (Bricks,
+Etch) — both the editing panel and the canvas iframe are detected
+automatically, regardless of this setting.

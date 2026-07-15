@@ -1,56 +1,57 @@
 ---
-title: Solución de problemas / FAQ
+title: Troubleshooting / FAQ
 ---
 
-## "El widget no aparece en mi sitio"
+## "The widget doesn't show up on my site"
 
-Comprobar en este orden:
+Check in this order:
 
-1. **¿Hay una clave API guardada?** Sin ella, el widget no se carga en
-   absoluto (ver [Primeros pasos](01-primeros-pasos.md)). El propio
-   admin muestra un aviso mientras tanto.
-2. **¿Estás dentro del editor de un page builder** (Bricks, Etch)? El
-   widget se oculta a propósito ahí — carga la página normal (fuera del
-   editor) para verlo.
-3. **¿La página actual está excluida por Visibility?** Revisar
-   Widget & WhatsApp → Visibility (ver
+1. **Is there an API key saved?** Without one, the widget doesn't load
+   at all (see [Getting Started](01-primeros-pasos.md)). The admin
+   itself shows a notice in the meantime.
+2. **Are you inside a page builder's editor** (Bricks, Etch)? The
+   widget is intentionally hidden there — load the regular page
+   (outside the editor) to see it.
+3. **Is the current page excluded by Visibility?** Check
+   Widget & WhatsApp → Visibility (see
    [Widget & WhatsApp](04-widget-whatsapp.md)).
 
-## "El asistente dejó de responder"
+## "The assistant stopped replying"
 
-Casi siempre una de estas dos causas, ambas visibles en Chat Behavior →
+Almost always one of these two causes, both visible in Chat Behavior →
 Spend Limit:
 
-- Se alcanzó el **tope de gasto diario** configurado.
-- La cuenta de Anthropic **se quedó sin créditos**.
+- The configured **daily spend limit** was reached.
+- The Anthropic account **ran out of credits**.
 
-En ambos casos hay un botón **"Resume assistant now"** para reanudar antes
-de que se resetee solo (a medianoche, o al recargar la cuenta).
+In both cases there's a **"Resume assistant now"** button to resume
+before it resets on its own (at midnight, or once the account is
+topped up).
 
-## "Un visitante quedó bloqueado sin motivo"
+## "A visitor got blocked for no reason"
 
-Revisar Conversations para desbloquear esa conversación puntual, o
-Moderation → "Unblock all conversations" si el problema es generalizado
-(umbral de strikes demasiado bajo, por ejemplo — conviene subirlo antes de
-que vuelva a pasar).
+Check Conversations to unblock that specific conversation, or
+Moderation → "Unblock all conversations" if the problem is widespread
+(strikes threshold set too low, for example — worth raising it before
+it happens again).
 
-## "Test connection dice que la clave es inválida pero estoy seguro que es correcta"
+## "Test connection says the key is invalid but I'm sure it's correct"
 
-Comprobar que no haya espacios extra al pegarla, y que no esté revocada
-desde el propio panel de Anthropic. Si el error es "no se pudo conectar"
-(no "clave inválida"), el problema es de red del servidor, no de la
-clave — confirmar que el servidor permite peticiones HTTPS salientes.
+Check that there are no extra spaces when pasting it, and that it
+hasn't been revoked from the Anthropic console itself. If the error is
+"couldn't connect" (not "invalid key"), the problem is the server's
+network, not the key — confirm the server allows outbound HTTPS
+requests.
 
-## "Aparece un aviso de que la limpieza automática no está corriendo"
+## "A notice appears saying automatic cleanup isn't running"
 
-Significa que WP-Cron está desactivado o roto en el sitio, así que la
-retención configurada (Privacy & Data) no se está aplicando. Si se
-desactivó WP-Cron a propósito (común en sitios de alto tráfico), hace
-falta configurar un cron real del servidor que ejecute `wp-cron.php`
-periódicamente.
+It means WP-Cron is disabled or broken on the site, so the configured
+retention (Privacy & Data) isn't being applied. If WP-Cron was
+disabled on purpose (common on high-traffic sites), you'll need to set
+up a real server cron that runs `wp-cron.php` periodically.
 
-## "El botón Skip no aparece" / "Aparece pero no debería"
+## "The Skip button doesn't show up" / "It shows up but shouldn't"
 
-Depende de dos ajustes en Privacy & Data, no solo uno — ver
-[Privacy & Data](08-privacy-data/index.md) para la interacción exacta entre
-"Allow visitors to skip" y "Require consent checkbox".
+Depends on two settings in Privacy & Data, not just one — see
+[Privacy & Data](08-privacy-data/index.md) for the exact interaction
+between "Allow visitors to skip" and "Require consent checkbox".

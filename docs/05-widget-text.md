@@ -2,41 +2,53 @@
 title: Widget Text
 ---
 
-Todos los textos fijos que el widget muestra por sí mismo (botones,
-etiquetas de campos, mensajes de error) — no el contenido dinámico que
-genera la IA. Traduce estos campos si tus visitantes hablan un idioma
-distinto al de los valores por defecto (en inglés). Dejar un campo vacío
-restaura su valor por defecto.
+All the fixed text the widget shows on its own (buttons, field labels,
+error messages) — not the dynamic content the AI generates. Translate
+these fields if your visitors speak a language other than the one the
+defaults are in (English). Leaving a field empty restores its default
+value.
 
-Tres sub-pestañas: Pre-chat Form (dividida en Form fields / Buttons &
-messages), Chat Window, Accessibility.
+Four sub-tabs: Pre-chat Form (split into Form fields / Buttons &
+messages), Chat Window, Accessibility, WhatsApp.
 
 ## Pre-chat Form — Form fields
 
-Etiquetas de los campos de nombre/email/teléfono del formulario previo al
-chat (ver [Privacy & Data](08-privacy-data/index.md) para cuándo se muestra
-este formulario).
+![Widget Text — Pre-chat Form](/img/screenshots/widget-text-prechat.png)
+
+Labels for the name/email/phone fields of the form shown before the
+chat (see [Privacy & Data](08-privacy-data/index.md) for when this
+form is shown).
 
 ## Pre-chat Form — Buttons & messages
 
-- Botón Continue, botón Skip (cuando corresponde).
-- Mensaje de error cuando faltan campos obligatorios.
-- Mensaje de error de consentimiento no aceptado.
-- Texto del enlace a la Política de Privacidad (cuando el checkbox de
-  consentimiento está activo y hay una página de privacidad configurada).
+- Continue button, Skip button (when applicable).
+- Error message when required fields are missing.
+- Error message for consent not accepted.
+- Text of the link to the Privacy Policy (when the consent checkbox
+  is enabled and a privacy page is configured).
 
 ## Chat Window
 
-- Placeholder del campo de mensaje, etiqueta del campo, botón de enviar.
-- Mensajes de error genéricos y de conexión.
-- Texto y aria-label del botón de WhatsApp, prefijo del resumen de
-  WhatsApp.
+![Widget Text — Chat Window](/img/screenshots/widget-text-chat-window.png)
+
+- Message field placeholder, field label, send button.
+- Generic and connection error messages.
+
+### WhatsApp
+
+![Widget Text — WhatsApp](/img/screenshots/widget-text-whatsapp.png)
+
+Text and aria-label of the WhatsApp button, prefix of the WhatsApp
+summary — it's its own sub-tab in the admin (not part of Chat
+Window).
 
 ## Accessibility
 
-Textos que **no se ven en pantalla**, solo los anuncian los lectores de
-pantalla — marcados con la etiqueta "SR only" junto al campo para no
-perder tiempo puliendo su aspecto visual (no tienen ninguno):
+![Widget Text — Accessibility](/img/screenshots/widget-text-accessibility.png)
 
-- Etiqueta del botón abrir/cerrar chat.
-- Etiqueta del registro de mensajes (`role="log"`).
+Text that **isn't visible on screen**, only announced by screen
+readers — marked with an "SR only" label next to the field so no time
+is wasted polishing its visual appearance (it has none):
+
+- Label for the open/close chat button.
+- Label for the message log (`role="log"`).

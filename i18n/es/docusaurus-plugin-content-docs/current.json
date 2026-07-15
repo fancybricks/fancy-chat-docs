@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Privacy & Data": {
+    "message": "Privacidad y datos",
+    "description": "The label for category 'Privacy & Data' in sidebar 'tutorialSidebar'"
+  }
+}

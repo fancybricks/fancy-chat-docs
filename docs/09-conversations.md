@@ -2,31 +2,31 @@
 title: Conversations
 ---
 
-Pantalla propia del admin (fuera de las pestañas de ajustes), enlazada
-desde la barra lateral. Tabla nativa de WordPress con todas las
-conversaciones registradas.
+A dedicated admin screen (outside the settings tabs), linked from the
+sidebar. Native WordPress table with every recorded conversation.
 
-## Buscar y filtrar
+![Conversations](/img/screenshots/conversations.png)
 
-- **Búsqueda** por nombre, email o teléfono de contacto.
-- **Filtro por estado**: todas / activas / bloqueadas.
+## Search and filter
 
-## Columnas
+- **Search** by contact name, email, or phone.
+- **Status filter**: all / active / blocked.
 
-ID, Contact (nombre/email/teléfono si se dieron), Status, Strikes,
-Messages (nº de mensajes), Last activity.
+## Columns
 
-## Acciones por fila
+ID, Contact (name/email/phone if provided), Status, Strikes, Messages
+(message count), Last activity.
 
-- **Unblock** — reactiva una conversación bloqueada puntual (alternativa
-  precisa a "Unblock all conversations" en Moderation, que reactiva
-  todas de golpe).
-- **Delete** — borra permanentemente la conversación y sus mensajes. Pide
-  confirmación antes de ejecutar.
+## Per-row actions
+
+- **Unblock** — reactivates a specific blocked conversation (a precise
+  alternative to "Unblock all conversations" in Moderation, which
+  reactivates all of them at once).
+- **Delete** — permanently deletes the conversation and its messages.
+  Asks for confirmation before running.
 
 ## Export contacts (CSV)
 
-Un clic descarga un CSV con todas las conversaciones que tienen al menos
-un dato de contacto: ID, nombre, email, teléfono, fecha de consentimiento
-(si se dio), fecha. Útil tanto para seguimiento comercial como para
-auditorías de privacidad.
+One click downloads a CSV with every conversation that has at least
+one piece of contact data: ID, name, email, phone, consent date (if
+given), date. Useful both for sales follow-up and for privacy audits.

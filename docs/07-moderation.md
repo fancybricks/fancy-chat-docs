@@ -2,47 +2,55 @@
 title: Moderation
 ---
 
-Dos sub-pestañas: Blocked Conversations y Manipulation attempt replies.
+Three sub-tabs: Blocking, Manipulation attempt replies, and Blocked
+Conversations.
 
-## Cómo funciona la detección (antes de llegar aquí)
+## How detection works (before it gets here)
 
-Dos capas, ambas gratuitas (sin coste extra de IA):
+Two layers, both free (no extra AI cost):
 
-1. **Heurística de patrones** — detecta intentos obvios de manipulación
-   ("ignora tus instrucciones", "ahora eres...", "revela tu prompt de
-   sistema", "modo jailbreak", etc.) en **inglés, español, portugués,
-   francés y alemán**, antes de llamar siquiera a la IA.
-2. **Auto-marcado del propio modelo** — cuando el visitante escribe en
-   cualquier otro idioma que la heurística no cubre, el modelo mismo
-   señala el intento (invisible para el visitante) en la misma respuesta
-   que ya se está generando, sin coste extra.
+1. **Pattern heuristic** — detects obvious manipulation attempts
+   ("ignore your instructions", "you are now...", "reveal your system
+   prompt", "jailbreak mode", etc.) in **English, Spanish, Portuguese,
+   French, and German**, before even calling the AI.
+2. **The model's own self-flagging** — when the visitor writes in any
+   other language the heuristic doesn't cover, the model itself flags
+   the attempt (invisible to the visitor) within the same reply that's
+   already being generated, at no extra cost.
 
-**Las preguntas fuera de tema nunca suman strikes** — solo cuentan los
-intentos reales de manipular al asistente. Un visitante curioso
-preguntando algo random no se arriesga a que lo bloqueen.
+**Off-topic questions never count toward strikes** — only actual
+attempts to manipulate the assistant do. A curious visitor asking
+something random doesn't risk getting blocked.
 
 ## Blocked Conversations
 
-- **Strikes before blocking** — número de intentos antes de bloquear la
-  conversación (por defecto 3, rango 1–20).
-- **Blocked message** — lo que ve el visitante una vez bloqueado. Los
-  Contacts y el número de WhatsApp se añaden automáticamente al final.
-- El bloqueo **expira solo**, pasado el mismo tiempo configurado como
-  "Conversation timeout" (Chat Behavior), o antes si se desbloquea a mano.
-- **Unblock a single conversation** — para desbloquear/borrar una
-  conversación puntual, se hace desde la pantalla **Conversations**
-  (ver [Conversations](09-conversations.md)), no desde aquí.
-- **Unblock all conversations** — botón de recurso general ante falsos
-  positivos masivos (por ejemplo, si el umbral de strikes estaba
-  demasiado bajo). Pide confirmación antes de ejecutar.
+![Moderation — Blocking](/img/screenshots/moderation-blocking.png)
+
+- **Strikes before blocking** — number of attempts before the
+  conversation is blocked (default 3, range 1–20).
+- **Blocked message** — what the visitor sees once blocked. Contacts
+  and the WhatsApp number are automatically appended at the end.
+- The block **expires on its own**, after the same time configured as
+  "Conversation timeout" (Chat Behavior), or sooner if unblocked by
+  hand.
+- **Unblock a single conversation** — to unblock/delete one specific
+  conversation, this is done from the **Conversations** screen (see
+  [Conversations](09-conversations.md)), not from here.
+- **Unblock all conversations** — a general-purpose button for
+  widespread false positives (for example, if the strikes threshold
+  was set too low). Asks for confirmation before running.
+
+![Moderation — Blocked Conversations](/img/screenshots/moderation-blocked-conversations.png)
 
 ## Manipulation attempt replies
 
-Un campo de texto **por idioma** (de los cinco que cubre la heurística) —
-la respuesta instantánea que ve el visitante cuando su mensaje es
-detectado como un intento obvio de manipulación en ese idioma. Editable
-para ajustar tono/redacción sin tocar código.
+![Moderation — Manipulation attempt replies](/img/screenshots/moderation-replies.png)
 
-Distinto del mensaje de bloqueo: este se muestra en el momento del
-intento (conversación sigue activa), el de bloqueo se muestra solo tras
-superar el umbral de strikes.
+One text field **per language** (of the five the heuristic covers) —
+the instant reply the visitor sees when their message is detected as
+an obvious manipulation attempt in that language. Editable to adjust
+tone/wording without touching code.
+
+Different from the blocked message: this one is shown at the moment of
+the attempt (conversation stays active), the blocked message is shown
+only after the strikes threshold is exceeded.

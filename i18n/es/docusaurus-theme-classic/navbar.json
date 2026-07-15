@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Fancy AI Chatbot",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Fancy AI Chatbot logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.fancychatbot.com": {
+    "message": "fancychatbot.com",
+    "description": "Navbar item with label fancychatbot.com"
+  }
+}

@@ -2,61 +2,62 @@
 title: AI Provider
 ---
 
-Todo lo relacionado con la conexión a la IA que impulsa el asistente.
+Everything related to the AI connection that powers the assistant.
 
-## Clave API de Anthropic
+![AI Provider tab](/img/screenshots/ai-provider.png)
 
-- Se guarda **cifrada en reposo** y nunca se envía al navegador del
-  visitante — todas las llamadas a Anthropic pasan por el propio servidor
-  de WordPress.
-- Mientras hay una clave guardada, el campo la muestra enmascarada
-  (`********`) — para reemplazarla, simplemente pega una nueva y guarda;
-  para confirmarla sin cambiarla, usa **Test connection** (no hace falta
-  volver a pegarla).
+## Anthropic API key
+
+- Stored **encrypted at rest** and never sent to the visitor's
+  browser — every call to Anthropic goes through the WordPress server
+  itself.
+- While a key is saved, the field shows it masked (`********`) — to
+  replace it, just paste a new one and save; to confirm it without
+  changing it, use **Test connection** (no need to paste it again).
 
 ### Test connection
 
-Botón junto al campo de la clave. Hace una llamada real mínima (`max_tokens
-16`) contra Anthropic con el modelo seleccionado, y distingue tres
-resultados:
+Button next to the key field. Makes a minimal real call (`max_tokens
+16`) to Anthropic with the selected model, and distinguishes three
+outcomes:
 
-- **Clave inválida** — Anthropic la rechazó (typo, o clave revocada).
-- **Sin créditos** — la clave es válida pero la cuenta de Anthropic no
-  tiene saldo.
-- **No se pudo conectar** — problema de red/servidor (el servidor no
-  permite peticiones HTTPS salientes, por ejemplo).
+- **Invalid key** — Anthropic rejected it (typo, or a revoked key).
+- **Out of credits** — the key is valid but the Anthropic account has
+  no balance.
+- **Couldn't connect** — a network/server problem (the server doesn't
+  allow outbound HTTPS requests, for example).
 
-Funciona tanto con una clave recién pegada en el campo (antes de guardar)
-como con la clave ya guardada (dejando el campo con la máscara tal cual).
+Works both with a key freshly pasted into the field (before saving)
+and with the key already saved (leaving the field masked as-is).
 
 ### Remove key
 
-Botón para eliminar la clave guardada (pide confirmación, ya que el
-asistente queda desconectado hasta guardar una nueva). Solo aparece si
-hay una clave guardada actualmente.
+Button to delete the saved key (asks for confirmation, since the
+assistant is disconnected until a new one is saved). Only shows up if
+a key is currently saved.
 
-## Modelo
+## Model
 
-Selector con tres modelos de Claude:
+Selector with three Claude models:
 
-| Modelo | Cuándo usarlo |
+| Model | When to use it |
 |---|---|
-| Claude Haiku 4.5 | Más rápido y barato — ideal para volumen alto de chats |
-| Claude Sonnet 5 | Equilibrio entre capacidad y coste |
-| Claude Opus 4.8 | Más capaz, coste más alto |
+| Claude Haiku 4.5 | Fastest and cheapest — ideal for high chat volume |
+| Claude Sonnet 5 | Balance between capability and cost |
+| Claude Opus 4.8 | Most capable, highest cost |
 
 ## Max tokens per reply
 
-Techo de tokens por cada respuesta del asistente (rango 256–8000). Valores
-más altos permiten respuestas más largas, pero cuestan más por mensaje.
+Token ceiling for each assistant reply (range 256–8000). Higher values
+allow longer replies, but cost more per message.
 
-## Estimador de coste en vivo
+## Live cost estimator
 
-Debajo del selector de modelo y del límite de tokens: "$10 de crédito de
-API ≈ X–Y mensajes con este modelo y límite." Se recalcula al instante
-según lo que elijas, **antes de guardar** — para decidir con el coste
-delante, no después de que ya esté configurado.
+Below the model selector and the token limit: "$10 in API credit ≈
+X–Y messages with this model and limit." Recalculated instantly as you
+choose, **before saving** — so you decide with the cost in front of
+you, not after it's already configured.
 
-El rango (X–Y) va del peor caso (cada respuesta agotando el límite de
-tokens) al caso típico (respuestas cortas) — por eso es un rango, no un
-número único.
+The range (X–Y) goes from the worst case (every reply maxing out the
+token limit) to the typical case (short replies) — that's why it's a
+range, not a single number.

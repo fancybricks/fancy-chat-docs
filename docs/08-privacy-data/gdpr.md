@@ -1,207 +1,220 @@
 ---
-title: RGPD en profundidad
+title: GDPR in depth
 sidebar_position: 2
 slug: /privacy-data/gdpr
 ---
 
-Fancy AI Chatbot te da las **herramientas técnicas** para minimizar,
-proteger, exportar, borrar y divulgar los datos que el propio chatbot
-recolecta. Lo que no hace — porque ningún software puede hacerlo — es
-decidir la base legal de tu sitio, redactar tu política de privacidad
-final, o certificarte como "RGPD compliant": esa responsabilidad sigue
-siendo del responsable del tratamiento, es decir, del dueño del sitio.
+Fancy AI Chatbot gives you the **technical tools** to minimize,
+protect, export, delete, and disclose the data the chatbot itself
+collects. What it doesn't do — because no software can — is decide
+your site's legal basis, draft your final privacy policy, or certify
+you as "GDPR compliant": that responsibility remains with the data
+controller, i.e. the site owner.
 
-## 1. Lo que este plugin hace y no hace por ti
+## 1. What this plugin does and doesn't do for you
 
-**Hace:**
-- Da las herramientas técnicas para minimizar, proteger, exportar, borrar y
-  divulgar los datos que el propio chatbot recolecta.
-- Integra esas herramientas con los mecanismos *nativos* de WordPress
-  (Herramientas > Exportar/Borrar datos personales, Ajustes > Privacidad),
-  en vez de reinventar una interfaz propia — así el flujo de solicitudes de
-  un visitante (ejercer sus derechos RGPD) es el mismo que ya usan otros
-  plugins bien integrados (WooCommerce, Contact Form 7).
+**Does:**
+- Provides the technical tools to minimize, protect, export, delete,
+  and disclose the data the chatbot itself collects.
+- Integrates those tools with WordPress's *native* mechanisms (Tools >
+  Export/Erase Personal Data, Settings > Privacy), instead of
+  reinventing its own interface — so the flow for a visitor's request
+  (exercising their GDPR rights) is the same one already used by other
+  well-integrated plugins (WooCommerce, Contact Form 7).
 
-**No hace:**
-- No decide la base legal del sitio, no redacta la política de privacidad
-  final, no gestiona el banner de cookies del sitio completo, no cubre
-  datos que otros plugins/temas recolecten.
-- No es una "certificación" — ningún plugin puede serlo. RGPD es una
-  responsabilidad del responsable del tratamiento (el dueño del sitio), no
-  del proveedor de software.
+**Doesn't do:**
+- Doesn't decide the site's legal basis, doesn't draft the final
+  privacy policy, doesn't manage the whole site's cookie banner,
+  doesn't cover data collected by other plugins/themes.
+- Isn't a "certification" — no plugin can be. GDPR compliance is the
+  responsibility of the data controller (the site owner), not the
+  software vendor.
 
-## 2. Qué datos toca el chatbot (mapa de datos)
+## 2. What data the chatbot touches (data map)
 
-| Dato | ¿Cuándo se recolecta? | ¿Cómo se protege? |
+| Data | When is it collected? | How is it protected? |
 |---|---|---|
-| Mensajes de la conversación | Siempre que alguien chatea | Se guardan en las tablas propias del plugin; se borran automáticamente según la retención configurada |
-| Nombre / email / teléfono | Solo si el formulario pre-chat está activo, y solo si el visitante los da | Asociados a la conversación; exportables/borrables vía las herramientas nativas de RGPD |
-| Dirección IP | Siempre (para limitar abuso) | **Nunca en texto plano** — se guarda como hash SHA-256 irreversible junto con un salt del propio WordPress |
-| Cookie de sesión (`fcai_session`) | Al enviar el primer mensaje | httpOnly, `Secure` si hay SSL, `SameSite=Lax`, dura 30 días, de un solo uso funcional (ver sección 4) |
-| Consentimiento explícito (si está activado) | Al marcar la casilla | Se guarda como fecha/hora exacta en la conversación — sirve como prueba de que se dio |
-| Clave API de Anthropic | La configura el dueño del sitio | Cifrada en reposo, nunca se envía al navegador |
+| Conversation messages | Whenever someone chats | Stored in the plugin's own tables; automatically deleted according to the configured retention |
+| Name / email / phone | Only if the pre-chat form is enabled, and only if the visitor provides them | Associated with the conversation; exportable/erasable via the native GDPR tools |
+| IP address | Always (to limit abuse) | **Never in plain text** — stored as an irreversible SHA-256 hash together with a salt from WordPress itself |
+| Session cookie (`fcai_session`) | When the first message is sent | httpOnly, `Secure` if SSL is present, `SameSite=Lax`, lasts 30 days, single functional purpose (see section 4) |
+| Explicit consent (if enabled) | When the checkbox is checked | Saved with an exact date/time on the conversation — serves as proof that it was given |
+| Anthropic API key | Configured by the site owner | Encrypted at rest, never sent to the browser |
 
-## 3. Base legal: interés legítimo vs. consentimiento explícito
+## 3. Legal basis: legitimate interest vs. explicit consent
 
-- Un chatbot de soporte al cliente normalmente puede operar bajo
-  **interés legítimo** (Art. 6.1.f RGPD) sin pedir un consentimiento
-  explícito por checkbox — es análogo a un formulario de contacto.
-- Sin embargo, como los mensajes se envían a un procesador de IA externo
-  (Anthropic, fuera de la UE) para generarlos, algunas agencias/abogados
-  prefieren una base más conservadora. Por eso existe la **casilla de
-  consentimiento opcional** (ver [Privacy & Data](index.md#require-consent-checkbox)):
-  permite a quien lo necesite pasar a un consentimiento explícito
-  (Art. 7), sin forzarlo en quien no lo necesita.
-- **Esta decisión de qué base legal usar es del dueño del sitio/su asesor
-  legal.** Preséntalo como una opción informada, no como una recomendación
-  universal.
+- A customer-support chatbot can normally operate under
+  **legitimate interest** (Art. 6.1.f GDPR) without asking for
+  explicit consent via a checkbox — it's analogous to a contact form.
+- However, since messages are sent to an external AI processor
+  (Anthropic, outside the EU) to generate them, some agencies/lawyers
+  prefer a more conservative basis. That's why there's an **optional
+  consent checkbox** (see [Privacy & Data](index.md#require-consent-checkbox)):
+  it lets whoever needs it switch to explicit consent (Art. 7),
+  without forcing it on those who don't need it.
+- **Deciding which legal basis to use is up to the site owner/their
+  legal counsel.** Present it as an informed option, not as a
+  universal recommendation.
 
-## 4. La cookie de sesión y por qué no necesita banner de cookies
+## 4. The session cookie and why it doesn't need a cookie banner
 
-Bajo el criterio clásico del antiguo Grupo de Trabajo del Artículo 29 (hoy
-EDPB) sobre exenciones de consentimiento de cookies, una cookie **no
-necesita** aparecer en un banner de "aceptar cookies" si cumple estos tres
-requisitos:
+Under the classic criteria of the former Article 29 Working Party
+(now the EDPB) on cookie consent exemptions, a cookie **doesn't need**
+to appear in an "accept cookies" banner if it meets these three
+requirements:
 
-1. **Propósito exclusivamente técnico/funcional** — no analítica, no
-   publicidad, no rastreo entre sitios. `fcai_session` solo sirve para
-   reconocer la conversación del mismo visitante.
-2. **Solo se activa cuando el visitante pide explícitamente el servicio** —
-   se crea únicamente al enviar el primer mensaje, nunca solo por cargar la
-   página (igual que la cookie de sesión de un carrito de compra).
-3. **No se comparte con terceros** — vive enteramente en el propio sitio.
+1. **Exclusively technical/functional purpose** — not analytics, not
+   advertising, not cross-site tracking. `fcai_session` only serves to
+   recognize the same visitor's conversation.
+2. **Only activated when the visitor explicitly requests the
+   service** — it's created solely when the first message is sent,
+   never just by loading the page (same as a shopping cart's session
+   cookie).
+3. **Not shared with third parties** — it lives entirely on the site
+   itself.
 
-`fcai_session` cumple los tres. Esto es equivalente a cómo se tratan las
-cookies de sesión de WooCommerce o de PHP mismo: casi nunca aparecen en un
-banner de consentimiento, solo se *divulgan* en la política de cookies/
-privacidad.
+`fcai_session` meets all three. This is equivalent to how
+WooCommerce's or PHP's own session cookies are treated: they almost
+never appear in a consent banner, they're only *disclosed* in the
+cookie/privacy policy.
 
-Esta es la interpretación general más extendida, no una garantía legal
-absoluta para cualquier jurisdicción o comité de protección de datos.
+This is the most widespread general interpretation, not an absolute
+legal guarantee for any jurisdiction or data protection authority.
 
-**Divulgación, no consentimiento**: aunque no necesite banner, sí debe
-**mencionarse** en la política de privacidad — el texto sugerido de
-WordPress (sección 5.7) ya la incluye con su nombre real y duración.
+**Disclosure, not consent**: even though it doesn't need a banner, it
+must still be **mentioned** in the privacy policy — WordPress's
+suggested text (section 5.7) already includes it with its real name
+and duration.
 
-## 5. Función por función: cómo cada una ayuda a cumplir
+## 5. Function by function: how each one helps you comply
 
-### 5.1 Exportar/Borrar datos personales (nativo de WordPress)
+### 5.1 Export/Erase Personal Data (native to WordPress)
 
-Se registra en los dos filtros nativos de WP
-(`wp_privacy_personal_data_exporters` / `..._erasers`), así que cuando
-alguien ejerce su derecho de acceso o de supresión desde Herramientas >
-Exportar/Borrar datos personales, el chatbot responde automáticamente:
-busca conversaciones por email de contacto (formulario pre-chat) o por
-cuenta de WordPress vinculada (visitante logueado mientras chateaba).
+![Tools > Export Personal Data](/img/screenshots/wp-export-personal-data.png)
 
-Un visitante anónimo que **nunca** compartió su email no tiene un
-identificador estable por el que buscar — para ese caso, la protección
-real es la retención automática (5.2), no el exportador.
+![Tools > Erase Personal Data](/img/screenshots/wp-erase-personal-data.png)
 
-### 5.2 Retención automática y borrado programado
+Registered with WP's two native filters
+(`wp_privacy_personal_data_exporters` / `..._erasers`), so when
+someone exercises their right of access or erasure from Tools >
+Export/Erase Personal Data, the chatbot responds automatically: it
+looks up conversations by contact email (pre-chat form) or by linked
+WordPress account (visitor logged in while chatting).
 
-Cron diario que borra permanentemente conversaciones inactivas más allá de
-los días configurados (por defecto 90; rango 0–3650; 0 = conservar para
-siempre, no recomendado). Aplica el principio de minimización de datos
-(Art. 5.1.e RGPD — "limitación del plazo de conservación") sin que el dueño
-del sitio tenga que acordarse de hacerlo a mano.
+An anonymous visitor who **never** shared their email has no stable
+identifier to search by — for that case, the real protection is
+automatic retention (5.2), not the exporter.
 
-Si WP-Cron está desactivado en el sitio, el admin ve un aviso visible en
-Privacy & Data explicando que la limpieza automática no está corriendo.
+### 5.2 Automatic retention and scheduled deletion
 
-### 5.3 Panel de Conversaciones (buscar, filtrar, borrar individual)
+Daily cron that permanently deletes conversations inactive beyond the
+configured number of days (default 90; range 0–3650; 0 = keep
+forever, not recommended). Applies the data minimization principle
+(Art. 5.1.e GDPR — "storage limitation") without the site owner having
+to remember to do it by hand.
 
-Tabla nativa de WordPress ([Conversations](../09-conversations.md)) con
-búsqueda por nombre/email/teléfono, filtro por estado, y acciones por
-fila: desbloquear o **borrar individualmente** una conversación — más
-preciso que el botón "desbloquear todas".
+If WP-Cron is disabled on the site, the admin sees a visible notice in
+Privacy & Data explaining that automatic cleanup isn't running.
 
-### 5.4 Exportación CSV de contactos
+### 5.3 Conversations panel (search, filter, delete individually)
 
-Un clic desde el admin exporta todos los contactos capturados por el
-formulario pre-chat (nombre, email, teléfono, fecha de consentimiento si
-aplica, fecha). Útil para que el dueño del sitio audite qué datos tiene.
+Native WordPress table ([Conversations](../09-conversations.md)) with
+search by name/email/phone, filter by status, and per-row actions:
+unblock or **delete individually** a conversation — more precise than
+the "unblock all" button.
 
-### 5.5 Clave API cifrada en reposo
+### 5.4 CSV export of contacts
 
-La clave de Anthropic se cifra antes de guardarse en la base de datos y
-nunca se envía al navegador — no es un dato personal de un visitante, pero
-sí un secreto sensible cuya fuga comprometería la cuenta del cliente.
+One click from the admin exports every contact captured by the
+pre-chat form (name, email, phone, consent date if applicable, date).
+Useful for the site owner to audit what data they hold.
 
-### 5.6 Sesiones anónimas e IP solo como hash
+### 5.5 API key encrypted at rest
 
-No requiere cuenta de WordPress para chatear. La IP se usa solo para
-limitar abuso (rate limiting) y se guarda como hash SHA-256 con salt —
-nunca en una forma reversible al IP original. Ejemplo de "privacidad por
-diseño" (Art. 25 RGPD): el dato mínimo necesario, en la forma menos
-identificable posible.
+The Anthropic key is encrypted before being saved to the database and
+never sent to the browser — it isn't a visitor's personal data, but it
+is a sensitive secret whose leak would compromise the customer's
+account.
 
-### 5.7 Texto sugerido para la Política de Privacidad
+### 5.6 Anonymous sessions and IP as a hash only
 
-Usa el mismo mecanismo nativo que WooCommerce/Akismet
-(`wp_add_privacy_policy_content()`): aparece en Ajustes > Privacidad >
-Policy Guide, listo para copiar. Se genera **dinámicamente** a partir de la
-configuración real del sitio (¿formulario pre-chat activo? ¿número de
-WhatsApp configurado? ¿cuántos días de retención?), así que no queda
-desactualizado cuando el dueño cambia esos ajustes. Menciona explícitamente
-la cookie de sesión y que los mensajes se envían a Anthropic.
+No WordPress account is required to chat. The IP is used only to
+limit abuse (rate limiting) and is stored as a salted SHA-256 hash —
+never in a form reversible back to the original IP. An example of
+"privacy by design" (Art. 25 GDPR): the minimum data necessary, in the
+least identifiable form possible.
 
-WordPress **nunca publica este texto solo** — el dueño del sitio debe
-copiarlo a su página real de Política de Privacidad.
+### 5.7 Suggested text for the Privacy Policy
 
-### 5.8 Casilla de consentimiento explícito (opcional)
+![Settings > Privacy](/img/screenshots/wp-privacy-settings.png)
 
-Ver sección 3. Si se activa, es obligatoria (no existe un modo "opcional
-una vez activada"). Se guarda con fecha exacta en la conversación como
-prueba. Incluye enlace automático a la página de Política de Privacidad de
-WordPress si hay una configurada.
+![Settings > Privacy > Policy Guide, with the text suggested by Fancy AI Chatbot](/img/screenshots/wp-privacy-policy-guide.png)
 
-### 5.9 Desinstalación limpia
+Uses the same native mechanism as WooCommerce/Akismet
+(`wp_add_privacy_policy_content()`): it appears in Settings > Privacy >
+Policy Guide, ready to copy. It's generated **dynamically** from the
+site's actual configuration (is the pre-chat form enabled? is a
+WhatsApp number configured? how many days of retention?), so it never
+goes stale when the owner changes those settings. It explicitly
+mentions the session cookie and that messages are sent to Anthropic.
 
-Al eliminar el plugin (no solo desactivar), se borran sus tablas y
-opciones — no deja datos huérfanos en la base de datos del cliente.
+WordPress **never publishes this text on its own** — the site owner
+must copy it to their actual Privacy Policy page.
 
-## 6. Terceros que procesan datos
+### 5.8 Explicit consent checkbox (optional)
 
-- **Anthropic** (proveedor de IA): recibe el contenido de los mensajes para
-  generar las respuestas. Es una transferencia internacional de datos
-  (empresa de EE. UU.) — normalmente cubierta contractualmente por las
-  Cláusulas Contractuales Tipo (SCCs) que Anthropic ya ofrece en sus propios
-  términos, pero **el dueño del sitio debe mencionar este hecho** en su
-  política (ya lo hace el texto sugerido de la sección 5.7).
-- **WhatsApp** (si está configurado): al pulsar el botón de handoff, se
-  comparte un resumen de la conversación generado por IA a través de un
-  enlace `wa.me` — el visitante inicia esa conversación voluntariamente.
+See section 3. Once enabled, it's mandatory (there's no "optional once
+enabled" mode). Saved with an exact date on the conversation as proof.
+Includes an automatic link to the WordPress Privacy Policy page if one
+is configured.
 
-## 7. Preguntas frecuentes
+### 5.9 Clean uninstall
 
-- **¿Este plugin me hace RGPD compliant automáticamente?**
-  No — ningún software lo hace. Te da las herramientas técnicas; la
-  responsabilidad legal de tu sitio sigue siendo tuya.
-- **¿Necesito un banner de cookies para este chatbot?**
-  Para la cookie de sesión propia del chat, normalmente no (ver sección 4).
-  Si usas otras herramientas de analítica/publicidad en tu sitio, esas sí
-  pueden requerirlo — independientemente de este plugin.
-- **¿Puedo usar el chatbot sin pedir el checkbox de consentimiento?**
-  Sí, es opcional. Muchos sitios operan bajo interés legítimo sin él (ver
-  sección 3).
-- **¿Qué pasa si un visitante pide que se borren sus datos?**
-  Si compartió su email, usa Herramientas > Borrar datos personales de
-  WordPress — el chatbot responde automáticamente. Si nunca compartió un
-  identificador, no hay forma de localizar su conversación específica; la
-  retención automática la eliminará de todos modos con el tiempo.
-- **¿Los mensajes salen de mi servidor?**
-  Sí, se envían a Anthropic para generar la respuesta — es inherente a
-  cómo funciona un chatbot de IA con un proveedor externo.
+When the plugin is deleted (not just deactivated), its tables and
+options are removed — no orphaned data is left in the customer's
+database.
 
-## 8. Checklist de lanzamiento
+## 6. Third parties that process data
 
-- [ ] Configura los días de retención según tu política interna.
-- [ ] Copia el texto sugerido (Ajustes > Privacidad > Policy Guide) a tu
-      página real de Política de Privacidad.
-- [ ] Decide si activas el checkbox de consentimiento explícito (consulta
-      con tu asesor legal si tienes dudas).
-- [ ] Si usas un plugin de gestión de cookies, añade `fcai_session`
-      manualmente a su lista (no lo detecta solo).
-- [ ] Revisa periódicamente el panel de Conversaciones si recibes
-      solicitudes de borrado fuera del flujo automático de WordPress.
+- **Anthropic** (AI provider): receives the content of messages to
+  generate replies. This is an international data transfer (a U.S.
+  company) — normally covered contractually by the Standard
+  Contractual Clauses (SCCs) Anthropic already offers in its own
+  terms, but **the site owner must mention this fact** in their
+  policy (the suggested text in section 5.7 already does).
+- **WhatsApp** (if configured): tapping the handoff button shares an
+  AI-generated summary of the conversation through a `wa.me` link —
+  the visitor starts that conversation voluntarily.
+
+## 7. Frequently asked questions
+
+- **Does this plugin make me GDPR compliant automatically?**
+  No — no software does. It gives you the technical tools; the legal
+  responsibility for your site remains yours.
+- **Do I need a cookie banner for this chatbot?**
+  For the chat's own session cookie, usually not (see section 4). If
+  you use other analytics/advertising tools on your site, those may
+  require one — independently of this plugin.
+- **Can I use the chatbot without asking for the consent checkbox?**
+  Yes, it's optional. Many sites operate under legitimate interest
+  without it (see section 3).
+- **What happens if a visitor asks for their data to be deleted?**
+  If they shared their email, use WordPress's Tools > Erase Personal
+  Data — the chatbot responds automatically. If they never shared an
+  identifier, there's no way to locate their specific conversation;
+  automatic retention will delete it eventually regardless.
+- **Do messages leave my server?**
+  Yes, they're sent to Anthropic to generate the reply — that's
+  inherent to how an AI chatbot with an external provider works.
+
+## 8. Launch checklist
+
+- [ ] Configure the retention days according to your internal policy.
+- [ ] Copy the suggested text (Settings > Privacy > Policy Guide) to
+      your actual Privacy Policy page.
+- [ ] Decide whether to enable the explicit consent checkbox (consult
+      your legal counsel if unsure).
+- [ ] If you use a cookie-management plugin, add `fcai_session`
+      manually to its list (it isn't auto-detected).
+- [ ] Periodically check the Conversations panel if you receive
+      deletion requests outside WordPress's automatic flow.

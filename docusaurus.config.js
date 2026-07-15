@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Fancy Chat AI',
-  tagline: 'Documentación oficial del plugin',
+  title: 'Fancy AI Chatbot',
+  tagline: 'Official plugin documentation',
   favicon: 'img/logo.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -36,8 +36,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'es',
-    locales: ['es'],
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
   },
 
   presets: [
@@ -50,6 +50,7 @@ const config = {
           sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/fancybricks/fancy-chat-docs/tree/main/',
+          editLocalizedFiles: true,
         },
         blog: false,
         theme: {
@@ -64,7 +65,7 @@ const config = {
       '@easyops-cn/docusaurus-search-local',
       {
         hashed: true,
-        language: ['es'],
+        language: ['en', 'es'],
         docsRouteBasePath: '/',
         indexDocs: true,
         indexBlog: false,
@@ -82,12 +83,16 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Fancy Chat AI',
+        title: 'Fancy AI Chatbot',
         logo: {
-          alt: 'Fancy Chat AI logo',
+          alt: 'Fancy AI Chatbot logo',
           src: 'img/logo.svg',
         },
         items: [
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           {
             href: 'https://fancychatbot.com',
             label: 'fancychatbot.com',

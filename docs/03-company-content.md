@@ -2,46 +2,56 @@
 title: Company & Content
 ---
 
-Todo lo que aquí se configura se inyecta automáticamente en el prompt de
-sistema del asistente — no hace falta escribir ni editar ningún prompt a
-mano, solo rellenar estos campos.
+Everything configured here is automatically injected into the
+assistant's system prompt — no need to write or edit any prompt by
+hand, just fill in these fields.
 
-## Perfil
+## Profile
 
-- **Company name** — nombre de la empresa.
-- **Company description** — a qué se dedica, en un par de frases.
-- **Tone of voice** — selector con cuatro estilos:
-  - Friendly and professional (por defecto)
+![Company & Content — Profile](/img/screenshots/company-content-profile.png)
+
+- **Company name** — your company's name.
+- **Company description** — what it does, in a couple of sentences.
+- **Tone of voice** — selector with four styles:
+  - Friendly and professional (default)
   - Formal and precise
   - Casual and conversational
   - Warm and empathetic
 
 ## Services
 
-Repetidor: nombre + descripción de cada servicio que el asistente puede
-explicar a los visitantes.
+![Company & Content — Services](/img/screenshots/company-content-services.png)
+
+Repeater: name + description for each service the assistant can
+explain to visitors.
 
 ## Pricing Plans
 
-Repetidor pensado para negocios que venden **planes/paquetes con precio
-fijo** (no una cotización a medida por servicio) — nombre del plan +
-precio/detalle.
+![Company & Content — Pricing Plans](/img/screenshots/company-content-pricing-plans.png)
+
+Repeater meant for businesses that sell **fixed-price plans/packages**
+(rather than a custom quote per service) — plan name + price/detail.
 
 ## Business Hours
 
-Repetidor de días + horario, por ejemplo: Días "Lunes–Viernes", Horario
-"9:00–18:00". Añade una fila extra para fines de semana o un día
-"Cerrado".
+![Company & Content — Hours](/img/screenshots/company-content-hours.png)
+
+Repeater of days + schedule, for example: Days "Monday–Friday", Hours
+"9:00 AM–6:00 PM". Add an extra row for weekends or a "Closed" day.
 
 ## Frequently Asked Questions
 
-Repetidor pregunta + respuesta, usado para que el asistente responda con
-la redacción exacta que definas en vez de improvisar.
+![Company & Content — FAQ](/img/screenshots/company-content-faq.png)
+
+Question + answer repeater, used so the assistant replies with the
+exact wording you define instead of improvising.
 
 ## Contacts
 
-Repetidor genérico etiqueta + valor (ej. "Correo de soporte" →
-`soporte@ejemplo.com`, "Teléfono" → un número). Estos contactos se
-**añaden automáticamente** al final de varios mensajes del plugin (mensaje
-de bloqueo, mensaje de tope de gasto alcanzado) — no hace falta repetirlos
-a mano en esos textos.
+![Company & Content — Contacts](/img/screenshots/company-content-contacts.png)
+
+Generic label + value repeater (e.g. "Support email" →
+`support@example.com`, "Phone" → a number). These contacts are
+**automatically appended** to the end of several plugin messages
+(blocked message, spend-limit-reached message) — no need to repeat
+them by hand in those texts.
