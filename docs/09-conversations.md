@@ -1,5 +1,6 @@
 ---
 title: Conversations
+sidebar_position: 11
 ---
 
 A dedicated admin screen (outside the settings tabs), linked from the

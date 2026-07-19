@@ -1,5 +1,6 @@
 ---
 title: Moderation
+sidebar_position: 8
 ---
 
 Three sub-tabs: Blocking, Manipulation attempt replies, and Blocked

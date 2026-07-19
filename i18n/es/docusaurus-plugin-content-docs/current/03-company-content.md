@@ -1,5 +1,6 @@
 ---
 title: Empresa y contenido
+sidebar_position: 4
 ---
 
 Todo lo que aquí se configura se inyecta automáticamente en el prompt de
@@ -17,6 +18,26 @@ mano, solo rellenar estos campos.
   - Formal and precise
   - Casual and conversational
   - Warm and empathetic
+- **Primary language** (idioma principal) — un selector con buscador que
+  cubre idiomas comunes y sus variantes regionales (ej. español de
+  Colombia frente a español de España). Por defecto toma el idioma de
+  WordPress de tu sitio. Se usa para el resumen de traspaso a WhatsApp
+  (siempre redactado en este idioma, sin importar en qué idioma haya
+  sido la conversación) y como respaldo para el ajuste de abajo.
+- **Which language should the assistant reply in?** (en qué idioma debe
+  responder el asistente) — tres opciones:
+  - **Match the visitor** (por defecto) — responde en el idioma en el
+    que escriba el visitante; solo recurre al idioma principal de
+    arriba cuando un mensaje es demasiado corto o ambiguo para
+    determinarlo (ej. un chip de pregunta sugerida de una sola
+    palabra).
+  - **Match the visitor, guess from their browser** — igual, pero ante
+    un mensaje ambiguo recurre al idioma del navegador del visitante
+    en vez del idioma principal.
+  - **Always use the primary language** — ignora por completo el
+    idioma del visitante y responde siempre en el idioma principal de
+    arriba, incluso ante un mensaje claro escrito en otro idioma. Útil
+    si tu equipo de soporte solo atiende en un idioma.
 
 ## Servicios
 
@@ -57,3 +78,49 @@ Repetidor genérico etiqueta + valor (ej. "Correo de soporte" →
 **añaden automáticamente** al final de varios mensajes del plugin (mensaje
 de bloqueo, mensaje de tope de gasto alcanzado) — no hace falta repetirlos
 a mano en esos textos.
+
+## Páginas
+
+![Empresa y contenido — Páginas](/img/screenshots/company-content-pages.png)
+
+Escanea contenido existente de tu sitio para añadir información al
+contexto del asistente. El contenido se organiza en una card
+colapsable por cada tipo de contenido — Pages, Posts, y cada custom
+post type que registre tu tema o tus plugins (solo la primera card
+empieza abierta) — para que un sitio con muchos tipos de contenido
+siga siendo fácil de recorrer. Cada card es independiente:
+
+- Su propio selector, con todos los elementos publicados de ese tipo
+  (con buscador si tiene más de 8).
+- Su propio botón **Scan selected _(tipo)_** — la IA lee el contenido
+  de lo seleccionado y condensa la información más relevante en el
+  cuadro de esa misma card, debajo. Se escanean hasta 10 elementos a
+  la vez por card. Si el cuadro ya tiene contenido, escanear pide
+  confirmación antes de reemplazarlo.
+- Su propio cuadro **Extracted info** con el resultado — separado por
+  tipo, para que escanear un tipo nunca sobrescriba lo ya extraído de
+  otro.
+
+Escanear usa tus propios créditos de la API de Anthropic y solo
+funciona con una clave de API activa (configurada en la pestaña AI
+Provider) — el botón **Scan** de cada card muestra el coste exacto de
+esa llamada al terminar (ej. "Scanned — cost: $0.0042").
+
+## Custom Info
+
+![Empresa y contenido — Custom Info](/img/screenshots/company-content-custom-info.png)
+
+Un cuadro de texto enriquecido para escribir o pegar tu propia
+información a mano — para todo lo que no cubran los campos de arriba
+ni el escaneo de las páginas de tu sitio. Si pegas una gran cantidad
+de texto, haz clic en **Summarize** para que la IA lo condense a lo
+esencial, manteniendo pequeña (y barata) la información que se envía
+en cada conversación sin perder lo importante. Igual que al escanear,
+esto usa tus propios créditos de la API de Anthropic y solo funciona
+con una clave de API activa — el botón **Summarize** muestra el coste
+exacto al terminar.
+
+Tanto este campo como cada cuadro "Extracted info" de la pestaña
+Pages se envían al asistente como texto plano junto con los demás
+campos de Empresa y contenido — el formato (negrita, listas, enlaces)
+de Custom Info es solo para tu comodidad al editar y la IA no lo ve.

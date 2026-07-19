@@ -1,5 +1,6 @@
 ---
 title: Translations & Languages
+sidebar_position: 12
 ---
 
 Two **separate and complementary** translation systems — easy to

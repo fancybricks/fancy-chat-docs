@@ -1,5 +1,6 @@
 ---
 title: AI Provider
+sidebar_position: 2
 ---
 
 Everything related to the AI connection that powers the assistant.
@@ -45,6 +46,8 @@ Selector with three Claude models:
 | Claude Haiku 4.5 | Fastest and cheapest — ideal for high chat volume |
 | Claude Sonnet 5 | Balance between capability and cost |
 | Claude Opus 4.8 | Most capable, highest cost |
+
+Claude Haiku 4.5 is pre-selected by default on a fresh install.
 
 ## Max tokens per reply
 

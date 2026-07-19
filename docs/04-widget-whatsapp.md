@@ -1,5 +1,6 @@
 ---
 title: Widget & WhatsApp
+sidebar_position: 5
 ---
 
 Five sub-tabs: Identity, Suggested Questions, WhatsApp, Disclaimer,

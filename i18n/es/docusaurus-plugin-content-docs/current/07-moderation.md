@@ -1,5 +1,6 @@
 ---
 title: Moderación
+sidebar_position: 8
 ---
 
 Tres sub-pestañas: Bloqueo, Respuestas a intentos de manipulación y

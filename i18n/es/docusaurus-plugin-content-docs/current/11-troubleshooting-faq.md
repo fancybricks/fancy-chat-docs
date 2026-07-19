@@ -1,5 +1,6 @@
 ---
 title: Solución de problemas / FAQ
+sidebar_position: 14
 ---
 
 ## "El widget no aparece en mi sitio"

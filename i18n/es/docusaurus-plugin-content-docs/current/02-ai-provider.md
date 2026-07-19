@@ -1,5 +1,6 @@
 ---
 title: Proveedor de IA
+sidebar_position: 2
 ---
 
 Todo lo relacionado con la conexión a la IA que impulsa el asistente.
@@ -46,6 +47,8 @@ Selector con tres modelos de Claude:
 | Claude Haiku 4.5 | Más rápido y barato — ideal para volumen alto de chats |
 | Claude Sonnet 5 | Equilibrio entre capacidad y coste |
 | Claude Opus 4.8 | Más capaz, coste más alto |
+
+Claude Haiku 4.5 viene preseleccionado por defecto en una instalación nueva.
 
 ## Máximo de tokens por respuesta
 

@@ -1,5 +1,6 @@
 ---
 title: Widget Text
+sidebar_position: 6
 ---
 
 All the fixed text the widget shows on its own (buttons, field labels,

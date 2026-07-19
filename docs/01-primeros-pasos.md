@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 slug: /
+sidebar_position: 1
 ---
 
 ## Requirements
@@ -19,23 +20,12 @@ slug: /
 3. Paste your Anthropic API key and click **Test connection** to
    confirm it works before saving (see
    [AI Provider](02-ai-provider.md)).
-4. Fill in **Company & Content** so the assistant knows about your
+4. Go to **License** and paste the key from your purchase confirmation
+   email to enable automatic updates and support (see
+   [License & Updates](12-license-updates.md)) — this is separate from
+   the API key above and never affects whether the chat widget works.
+5. Fill in **Company & Content** so the assistant knows about your
    business (see [Company & Content](03-company-content.md)).
-
-## What happens if you activate the plugin without a key yet
-
-The chat widget **doesn't show up on the site** until an API key is
-saved — visitors don't see a broken bubble or a visible error, nothing
-simply loads at all.
-
-In the meantime, the WordPress admin reminds you in two ways:
-
-- A dismissible notice throughout the rest of the admin (any screen
-  other than the plugin's own), with a direct link to AI Provider.
-- A persistent notice inside every tab of the plugin (except AI
-  Provider, where it would be redundant with the field itself).
-
-Both notices disappear on their own as soon as you save a valid key.
 
 ## First-run redirect
 

@@ -1,5 +1,6 @@
 ---
 title: Chat Behavior
+sidebar_position: 7
 ---
 
 Two sub-tabs: Behavior and Spend Limit.
@@ -15,7 +16,21 @@ Two sub-tabs: Behavior and Spend Limit.
 - **Max messages per conversation** — hard cap on messages within a
   single conversation (default 40, range 2–500), independent of the
   time-based limit. Protects against the cost of an abnormally long
-  conversation.
+  conversation. This is a total-length cap, not an abuse control —
+  starting a new conversation resets it. See "Messages per session"
+  below for the actual abuse throttle.
+- **Conversation limit message** — what the visitor sees once that cap
+  is reached. Contacts and the WhatsApp number are appended
+  automatically, same as the other limit messages on this page.
+- **Messages per session (abuse prevention)** — blocks a visitor who
+  sends more messages than this within the time window below (default
+  20 messages). This is a sliding window: each new message extends it,
+  so an active abuser never earns a fresh quota by simply waiting it
+  out. It resets on its own once the window passes with no new messages.
+- **Session limit window (minutes)** — the sliding time window the
+  count above is measured over (default 10).
+- **Rate limit message** — what the visitor sees while rate-limited.
+  Contacts and the WhatsApp number are appended automatically here too.
 
 ## Spend Limit
 

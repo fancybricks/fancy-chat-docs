@@ -48,9 +48,6 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/fancybricks/fancy-chat-docs/tree/main/',
-          editLocalizedFiles: true,
         },
         blog: false,
         theme: {

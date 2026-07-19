@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting / FAQ
+sidebar_position: 14
 ---
 
 ## "The widget doesn't show up on my site"

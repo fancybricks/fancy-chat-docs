@@ -1,6 +1,7 @@
 ---
 title: Primeros pasos
 slug: /
+sidebar_position: 1
 ---
 
 ## Requisitos
@@ -19,23 +20,13 @@ slug: /
 3. Pega tu clave API de Anthropic y pulsa **Probar conexión** para
    confirmar que funciona antes de guardar (ver
    [Proveedor de IA](02-ai-provider.md)).
-4. Rellena **Empresa y contenido** para que el asistente conozca tu
+4. Ve a **Licencia** y pega la clave de tu correo de confirmación de
+   compra para activar las actualizaciones automáticas y el soporte
+   (ver [Licencia y actualizaciones](12-license-updates.md)) — es
+   independiente de la clave API de arriba y nunca afecta si el widget
+   de chat funciona.
+5. Rellena **Empresa y contenido** para que el asistente conozca tu
    negocio (ver [Empresa y contenido](03-company-content.md)).
-
-## Qué pasa si activas el plugin sin configurar la clave todavía
-
-El widget de chat **no aparece en el sitio** hasta que hay una clave API
-guardada — no se muestra una burbuja rota ni un error visible para los
-visitantes, simplemente no se carga nada.
-
-Mientras tanto, el propio admin de WordPress te lo recuerda de dos formas:
-
-- Un aviso descartable en el resto del admin (cualquier pantalla que no
-  sea la del propio plugin), con un enlace directo a Proveedor de IA.
-- Un aviso permanente dentro de cualquier pestaña del plugin (salvo
-  Proveedor de IA, donde sería redundante con el propio campo).
-
-Ambos avisos desaparecen solos en cuanto guardas una clave válida.
 
 ## Redirección de primer uso
 

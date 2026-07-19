@@ -1,5 +1,6 @@
 ---
 title: Comportamiento del chat
+sidebar_position: 7
 ---
 
 Dos sub-pestañas: Comportamiento y Límite de gasto.
@@ -15,7 +16,24 @@ Dos sub-pestañas: Comportamiento y Límite de gasto.
 - **Máximo de mensajes por conversación** — techo duro de mensajes en una
   misma conversación (por defecto 40, rango 2–500), independiente del
   límite por tiempo. Protege contra el coste de una conversación
-  anormalmente larga.
+  anormalmente larga. Es un tope de longitud total, no un control de
+  abuso — iniciar una conversación nueva lo reinicia. Ver "Mensajes por
+  sesión" más abajo para el límite de abuso real.
+- **Mensaje de límite de conversación** — lo que ve el visitante al
+  alcanzar ese tope. Los Contactos y el número de WhatsApp se añaden
+  automáticamente, igual que los demás mensajes de límite de esta
+  página.
+- **Mensajes por sesión (prevención de abuso)** — bloquea a un visitante
+  que envíe más mensajes que este número dentro de la ventana de tiempo
+  de abajo (por defecto 20 mensajes). Es una ventana deslizante: cada
+  mensaje nuevo la extiende, así que un abusador activo nunca gana una
+  cuota nueva solo esperando. Se resetea sola al pasar la ventana sin
+  mensajes nuevos.
+- **Ventana del límite de sesión (minutos)** — la ventana de tiempo
+  deslizante en la que se mide el conteo de arriba (por defecto 10).
+- **Mensaje de límite de ritmo** — lo que ve el visitante mientras está
+  limitado por ritmo. Los Contactos y el número de WhatsApp también se
+  añaden automáticamente aquí.
 
 ## Límite de gasto
 

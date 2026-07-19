@@ -1,5 +1,6 @@
 ---
 title: Widget y WhatsApp
+sidebar_position: 5
 ---
 
 Cinco sub-pestañas: Identidad, Preguntas sugeridas, WhatsApp, Aviso legal,

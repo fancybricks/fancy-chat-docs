@@ -1,5 +1,6 @@
 ---
 title: Traducciones e idiomas
+sidebar_position: 12
 ---
 
 Dos sistemas de traducción **distintos y complementarios** — es fácil

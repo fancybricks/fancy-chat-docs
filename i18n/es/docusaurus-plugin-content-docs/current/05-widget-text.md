@@ -1,5 +1,6 @@
 ---
 title: Textos del widget
+sidebar_position: 6
 ---
 
 Todos los textos fijos que el widget muestra por sí mismo (botones,
